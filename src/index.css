@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Russo One', sans-serif; /* Wrap in quotes and add a fallback font */
+}
