@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-center items-center w-full">
-      <nav className="bg-[rgba(255,255,255,0.8)] flex text-black relative h-24 w-full md:w-[90%] lg:w-[50%] rounded-full shadow-lg">
+      <nav className="bg-white md:bg-[rgba(255,255,255,0.8)] flex text-black relative h-24 w-full md:w-[90%] lg:w-[50%] rounded-full shadow-lg">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center flex-wrap">
           {/* Logo */}
           <div className="flex items-center">
