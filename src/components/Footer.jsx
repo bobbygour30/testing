@@ -17,13 +17,13 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black font-bold py-10">
+    <footer className="bg-[#F7FF80] text-black font-bold py-10">
       <div className="container mx-auto px-4">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center space-y-8 lg:space-y-0">
           {/* Logo */}
           <div className="flex flex-col items-center lg:items-start space-y-4">
-            <img src={assets.logo} alt="Logo" className="h-12" />
+            <img src={assets.logo} alt="Logo" className="h-16" />
             <div className="text-sm text-left max-w-xs">
               {/* Phone */}
               <div className="flex items-center space-x-2">
@@ -59,10 +59,10 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <nav className="flex flex-col lg:flex-row gap-4 lg:gap-10 items-center">
-            <Link to="#" className="hover:text-yellow-400">
+            <Link to="/terms" className="hover:text-yellow-400">
               Terms & Conditions
             </Link>
-            <Link to="#" className="hover:text-yellow-400">
+            <Link to="/privacy" className="hover:text-yellow-400">
               Privacy Policy
             </Link>
             <Link to="/contact" className="hover:text-yellow-400">

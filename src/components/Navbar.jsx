@@ -1,23 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Importing Link from react-router-dom
-import assets from "../assets/assests"; // Replace with your logo's path
+import { Link } from "react-router-dom";
+import assets from "../assets/assests";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Close the mobile menu when a menu item is clicked
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
   return (
     <div className="flex justify-center items-center w-full">
-      <nav className="bg-white md:bg-[rgba(255,255,255,0.8)] flex text-black relative h-24 w-full md:w-[90%] lg:w-[50%] rounded-full shadow-lg">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center flex-wrap">
+      <nav className="bg-white bg-opacity-30 backdrop-blur-lg flex items-center justify-center text-black relative h-[75px] sm:h-24 w-full md:w-[90%] lg:w-[70%] rounded-full shadow-lg">
+        <div className="container mx-auto  px-4 py-3  flex justify-between items-center flex-wrap">
           {/* Logo */}
           <div className="flex items-center">
             <Link to={"/"}>
-              <img src={assets.logo} alt="Logo" className="h-10 sm:h-12" />
+              <img src={assets.logo} alt="Logo" className="h-16 sm:h-[70px]" />
             </Link>
           </div>
 
@@ -56,7 +55,7 @@ const Navbar = () => {
           </ul>
 
           {/* Contact Button */}
-          <button className="hidden md:block bg-black text-white px-6 py-3 rounded-full font-bold tracking-wide hover:bg-yellow-500 hover:text-black transition-all">
+          <button className="hidden md:block bg-black text-white px-6 py-3 rounded-full font-bold tracking-wide hover:bg-[#F7FF80] hover:text-black transition-all">
             <Link to="/contact">Contact Us</Link>
           </button>
 

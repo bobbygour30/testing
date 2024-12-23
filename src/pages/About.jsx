@@ -1,43 +1,136 @@
 import React from "react";
+import assets from "../assets/assests";
 
 const About = () => {
   return (
-    <section className="py-16 px-6 md:px-12 bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
+    <section className="py-10 sm:py-16 px-4 sm:px-6 md:px-12 bg-[#F7FF80]">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500 mb-8">
-          About Us
-        </h2>
-        <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
-          We are a passionate team of professionals committed to delivering top-notch web
-          development, app development, and design services. Our mission is to transform your
-          ideas into powerful and innovative solutions that meet your needs.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 hover:scale-105">
-            <div className="bg-gradient-to-br from-green-400 to-teal-500 w-16 h-16 flex items-center justify-center rounded-full mb-4 mx-auto">
-              <span className="text-2xl text-white font-bold">🎯</span>
+        {/* Intro Section */}
+        <div className="w-full rounded-lg bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg p-6 sm:p-8">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-black mb-4 sm:mb-6">
+            About Us
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-800 font-semibold leading-relaxed max-w-3xl mx-auto">
+            We are a passionate team of professionals committed to delivering
+            top-notch web development, app development, and design services. Our
+            mission is to transform your ideas into powerful and innovative
+            solutions that meet your needs.
+          </p>
+        </div>
+
+        {/* Founder Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center mt-8 sm:mt-12">
+          {/* Left: Founder Image */}
+          <div className="flex justify-center">
+            <div className="animated-border w-full max-w-sm">
+              <img
+                src={assets.founder}
+                alt="Our Founder"
+                className="rounded-lg w-full object-cover"
+              />
             </div>
-            <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-            <p className="text-gray-400">
-              Empower businesses with cutting-edge technological solutions that
-              drive growth and success.
-            </p>
           </div>
-          <div className="p-6 bg-gray-800 bg-opacity-80 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 hover:scale-105">
-            <div className="bg-gradient-to-br from-purple-400 to-pink-500 w-16 h-16 flex items-center justify-center rounded-full mb-4 mx-auto">
-              <span className="text-2xl text-white font-bold">🌍</span>
-            </div>
-            <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-            <p className="text-gray-400">
-              Become a global leader in providing innovative digital services and
-              transformative solutions.
+
+          {/* Right: Founder Story */}
+          <div className="relative bg-emerald-600 text-white rounded-lg shadow-lg overflow-hidden p-6 sm:p-8">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-4 sm:mb-6">
+              Our Founder's Journey
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
+              Our founder's journey is a story of
+              <span className="font-bold text-yellow-400"> resilience</span>,
+              <span className="font-bold text-yellow-400"> passion</span>, and
+              <span className="font-bold text-yellow-400"> innovation</span>.
+              From humble beginnings, he envisioned a future driven by impactful
+              digital solutions. Through challenges and triumphs, he turned his
+              dreams into a thriving reality.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-4">
+              With a background in software engineering, he identified gaps in
+              the industry and dedicated himself to bridging them through
+              <span className="font-bold text-yellow-400"> creativity</span> and
+              <span className="font-bold text-yellow-400"> dedication</span>.
+              His leadership has fostered a culture of
+              <span className="font-bold text-yellow-400"> innovation</span>,
+              empowering the organization to consistently deliver excellence.
             </p>
           </div>
         </div>
-        <div className="mt-12">
-          <button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-8 py-4 rounded-lg shadow-md font-semibold hover:shadow-lg hover:scale-105 transform transition-all duration-300">
-            Learn More
-          </button>
+
+        {/* Company Section */}
+        <div className="py-8 sm:py-12 px-4 sm:px-6 md:px-8 bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] mt-8 sm:mt-12">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 mb-4 text-center">
+              About Our Company
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 text-center max-w-2xl mx-auto">
+              Discover who we are, what we do, and how we can help transform
+              your business with innovative solutions and strategic
+              partnerships.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {/* Card 1 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-yellow-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Who We Are
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  We are a team of dedicated professionals passionate about
+                  providing cutting-edge solutions for businesses of all sizes.
+                </p>
+              </div>
+              {/* Card 2 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Our Mission
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Our mission is to empower businesses by offering services that
+                  drive innovation, efficiency, and growth.
+                </p>
+              </div>
+              {/* Card 3 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Our Expertise
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  We specialize in web development, app design, and business
+                  automation to help you stay ahead in the competitive market.
+                </p>
+              </div>
+              {/* Card 4 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-purple-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Our Values
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Integrity, innovation, and client satisfaction are at the
+                  heart of everything we do.
+                </p>
+              </div>
+              {/* Card 5 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-red-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Why Choose Us
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  With a proven track record of success, we help businesses
+                  unlock their full potential with tailored solutions.
+                </p>
+              </div>
+              {/* Card 6 */}
+              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-teal-400 hover:shadow-xl transition-shadow duration-300">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+                  Get in Touch
+                </h3>
+                <p className="text-sm sm:text-base text-gray-600">
+                  Reach out to us today and let’s start a conversation about how
+                  we can help your business achieve its goals.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

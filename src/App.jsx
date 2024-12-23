@@ -8,10 +8,12 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
+import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 const App = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#F7FF80]">
       <div className='sticky top-0 z-10'>
         <Navbar  />
       </div>
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<TermsAndConditions/>} />
+          <Route path="/privacy" element={<PrivacyPolicy/>} />
         </Routes>
       </div>
       <Footer />

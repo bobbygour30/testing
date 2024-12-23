@@ -16,6 +16,42 @@ body {
   }
 }
 
-.animate-slideIn {
-  animation: slideIn 0.3s ease-out forwards;
+.animated-border {
+  position: relative;
+  display: inline-block;
+  border: 5px solid transparent;
+  border-radius: 12px; /* Match image's border-radius */
+  background: conic-gradient(
+    from 0deg,
+    yellow,
+    green,
+    yellow,
+    green,
+    yellow
+  );
+  background-size: 300% 300%; /* Makes the animation more noticeable */
+  animation: snakeAnimation 3s linear infinite;
 }
+
+@keyframes snakeAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 300% 300%;
+  }
+}
+
+.animated-border img {
+  display: block;
+  border-radius: 12px; /* Match the border */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: white; /* Prevents gradient overlap inside */
+}
+
+
+
+
+
