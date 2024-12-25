@@ -1,6 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
-/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -9,7 +9,6 @@ export default {
         russo: ['"Russo One"', ...fontFamily.sans],
       },
     },
-    
-    plugins: [],
   },
+  plugins: [],
 };

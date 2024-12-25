@@ -1,6 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    image: null, // Add image field
+  });
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData({ ...formData, image: file });
+      setImagePreview(URL.createObjectURL(file)); // Generate a preview URL
+    }
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (formData.title && formData.description) {
+      const newBlog = {
+        title: formData.title,
+        description: formData.description,
+        image: imagePreview, // Use the preview URL for display
+      };
+      setBlogs([...blogs, newBlog]);
+      setFormData({ title: "", description: "", image: null });
+      setImagePreview(null);
+    }
+  };
+
   return (
     <section className="py-16 px-6 md:px-12 bg-gradient-to-br from-[#F7FF80] via-white to-[#F7FF80] text-black">
       {/* Hero Section */}
@@ -9,101 +44,99 @@ const Blog = () => {
           Welcome to Our Blog
         </h1>
         <p className="text-lg font-medium text-gray-800 max-w-3xl mx-auto">
-          Discover insights, strategies, and stories from industry leaders. 
+          Discover insights, strategies, and stories from industry leaders.
           Learn about the latest in technology, design, and business growth to inspire your journey.
         </p>
       </div>
 
-      {/* Featured Articles Section */}
+      {/* Blog Submission Form */}
+      <section className="max-w-3xl mx-auto mb-16">
+        <h2 className="text-3xl font-bold text-black mb-6 text-center">Write a Blog</h2>
+        <form onSubmit={handleFormSubmit} className="bg-gradient-to-br from-[#F7FF80] to-white p-6 rounded-lg shadow-md">
+          <div className="mb-4">
+            <label htmlFor="title" className="block text-lg font-medium text-gray-700 mb-2">
+              Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleInputChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+              placeholder="Enter blog title"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="description" className="block text-lg font-medium text-gray-700 mb-2">
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+              placeholder="Enter blog description"
+              required
+            ></textarea>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="image" className="block text-lg font-medium text-gray-700 mb-2">
+              Upload Image
+            </label>
+            <input
+              type="file"
+              id="image"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="w-full p-3 border border-gray-300 rounded-lg"
+            />
+            {imagePreview && (
+              <div className="mt-4">
+                <p className="text-sm text-gray-600">Image Preview:</p>
+                <img
+                  src={imagePreview}
+                  alt="Preview"
+                  className="w-full h-48 object-cover rounded-lg shadow-md"
+                />
+              </div>
+            )}
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+
+      {/* Display User Blogs */}
       <section className="max-w-7xl mx-auto mb-16">
-        <h2 className="text-4xl font-bold text-black mb-8 text-center">
-          Featured Articles
-        </h2>
+        <h2 className="text-3xl font-bold text-black mb-8 text-center">User Blogs</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Breaking Down AI for Business",
-              description:
-                "Explore how artificial intelligence is reshaping industries and creating opportunities.",
-              image: "https://via.placeholder.com/400",
-            },
-            {
-              title: "Designing for Accessibility",
-              description:
-                "Learn the principles of inclusive design and how to build better user experiences for everyone.",
-              image: "https://via.placeholder.com/400",
-            },
-            {
-              title: "Mastering Digital Marketing",
-              description:
-                "Get actionable tips for SEO, social media, and email marketing to grow your brand.",
-              image: "https://via.placeholder.com/400",
-            },
-          ].map((article, index) => (
+          {blogs.map((blog, index) => (
             <div
               key={index}
               className="rounded-lg overflow-hidden shadow-lg bg-white transform transition-transform duration-300 hover:scale-105"
             >
-              <img
-                src={article.image}
-                alt={article.title}
-                className="w-full h-56 object-cover"
-              />
+              {blog.image && (
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-48 object-cover"
+                />
+              )}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-4">
-                  {article.title}
-                </h3>
-                <p className="text-gray-700">{article.description}</p>
-                <button className="mt-6 text-yellow-500 font-semibold hover:underline">
-                  Read More
-                </button>
+                <h3 className="text-xl font-bold text-black mb-4">{blog.title}</h3>
+                <p className="text-gray-700">{blog.description}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-      {/* Blog Categories Section */}
-      <section className="max-w-7xl mx-auto mb-16">
-        <h2 className="text-4xl font-bold text-black mb-8 text-center">
-          Explore by Category
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              category: "Technology",
-              description:
-                "The latest advancements, innovations, and breakthroughs in tech.",
-            },
-            {
-              category: "Design",
-              description:
-                "Trends and best practices for UI/UX, graphic design, and creative solutions.",
-            },
-            {
-              category: "Marketing",
-              description:
-                "Strategies to drive growth and connect with your audience effectively.",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="p-8 bg-gradient-to-b from-gray-800 to-black rounded-lg shadow-lg text-center hover:scale-105 transform transition-transform duration-300"
-            >
-              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
-                {item.category}
-              </h3>
-              <p className="text-gray-300">{item.description}</p>
-              <button className="mt-6 text-yellow-400 font-semibold hover:underline">
-                Explore
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-     
-      
     </section>
   );
 };

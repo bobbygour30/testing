@@ -13,30 +13,30 @@ const Portfolio = () => {
               title: "E-Commerce Platform",
               description:
                 "A robust platform for online shopping experiences.",
-              image: "https://via.placeholder.com/400",
+              image: "https://www.iwdagency.com/cdn/shop/articles/eCommerce_Platform_Pic_2000x.jpg?v=1698957713",
             },
             {
               title: "Portfolio Website",
               description:
                 "A personalized portfolio to showcase skills and projects.",
-              image: "https://via.placeholder.com/400",
+              image: "https://wpvip.edutopia.org/wp-content/uploads/2022/10/robinson-169hero-portfolio-shutterstock.jpg?w=2880&quality=85",
             },
             {
               title: "SaaS Application",
               description:
                 "A cloud-based application for efficient business operations.",
-              image: "https://via.placeholder.com/400",
+              image: "https://www.finoit.com/wp-content/uploads/2023/03/saas-vs-web-applications.jpg",
             },
             {
               title: "Social Media App",
               description:
                 "A vibrant app connecting users across the globe.",
-              image: "https://via.placeholder.com/400",
+              image: "https://interexy.com/wp-content/uploads/2021/11/61d3b99c361d2623653b81d5bc623791.jpg",
             },
           ].map((project, index) => (
             <div
               key={index}
-              className="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 hover:scale-105"
+              className="p-6 bg-gradient-to-br from-[#F7FF80] to-white rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 hover:scale-105"
             >
               <img
                 src={project.image}

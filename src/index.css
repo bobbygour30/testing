@@ -50,6 +50,18 @@ body {
   object-fit: cover;
   background-color: white; /* Prevents gradient overlap inside */
 }
+/* Hide scrollbar */
+body::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
+
+body {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+
+
 
 
 

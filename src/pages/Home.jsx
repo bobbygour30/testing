@@ -9,7 +9,7 @@ const Home = () => {
         <div className="flex-1 max-w-lg text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Bringing Your{" "}
-            <span className="bg-clip-text text-transparent bg-black">
+            <span className="bg-clip-text text-transparent bg-purple-500">
               Digital Vision
             </span>{" "}
             to Life.
@@ -45,7 +45,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Graphics Design",
+                title: "Graphic Designing",
                 description:
                   "Creating visually appealing designs for various purposes, such as logos, brochures, and social media posts.",
               },
@@ -119,20 +119,20 @@ const Home = () => {
                 title: "E-Commerce Platform",
                 description:
                   "A robust platform for online shopping experiences.",
-                image: "https://via.placeholder.com/400",
+                image: "https://www.iwdagency.com/cdn/shop/articles/eCommerce_Platform_Pic_2000x.jpg?v=1698957713",
                 color: "bg-gradient-to-r from-yellow-500 to-yellow-600",
               },
               {
                 title: "Portfolio Website",
                 description:
                   "A personalized portfolio to showcase skills and projects.",
-                image: "https://via.placeholder.com/400",
+                image: "https://wpvip.edutopia.org/wp-content/uploads/2022/10/robinson-169hero-portfolio-shutterstock.jpg?w=2880&quality=85",
                 color: "bg-gradient-to-r from-yellow-400 to-yellow-600",
               },
               {
                 title: "Blogging Platform",
                 description: "A sleek and intuitive platform for blogging.",
-                image: "https://via.placeholder.com/400",
+                image: "https://www.searchenginejournal.com/wp-content/uploads/2020/08/7-ways-a-blog-can-help-your-business-right-now-5f3c06b9eb24e-1280x720.png",
                 color: "bg-gradient-to-r from-yellow-400 to-yellow-500",
               },
             ].map((project, index) => (

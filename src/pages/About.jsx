@@ -21,18 +21,21 @@ const About = () => {
         {/* Founder Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center mt-8 sm:mt-12">
           {/* Left: Founder Image */}
+          {/* Left: Founder Image */}
           <div className="flex justify-center">
-            <div className="animated-border w-full max-w-sm">
+            <div className="animated-border w-full max-w-xs">
+              {" "}
+              {/* Reduced from max-w-sm to max-w-xs */}
               <img
                 src={assets.founder}
                 alt="Our Founder"
-                className="rounded-lg w-full object-cover"
+                className="rounded-lg w-1/2 object-cover"
               />
             </div>
           </div>
 
           {/* Right: Founder Story */}
-          <div className="relative bg-emerald-600 text-white rounded-lg shadow-lg overflow-hidden p-6 sm:p-8">
+          <div className="relative bg-emerald-600 h-full flex flex-col items-center justify-center text-white rounded-lg shadow-lg overflow-hidden p-6 sm:p-8">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-yellow-400 mb-4 sm:mb-6">
               Our Founder's Journey
             </h3>
@@ -57,6 +60,62 @@ const About = () => {
           </div>
         </div>
 
+        {/* Our Team Section */}
+        <div className="py-12 bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] mt-20">
+          <h2 className="text-2xl  sm:text-3xl md:text-4xl font-extrabold text-gray-800 mb-6">
+            Meet Our Team
+          </h2>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Our talented team is the driving force behind our success. Get to
+            know the passionate individuals dedicated to making your vision a
+            reality.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {/* Team Member 1 */}
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember1}
+                alt="Team Member 1"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                John Doe
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Project Manager
+              </p>
+            </div>
+            {/* Team Member 2 */}
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember2}
+                alt="Team Member 2"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Jane Smith
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Lead Developer
+              </p>
+            </div>
+            {/* Team Member 3 */}
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember3}
+                alt="Team Member 3"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Emily Johnson
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                UI/UX Designer
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Company Section */}
         <div className="py-8 sm:py-12 px-4 sm:px-6 md:px-8 bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] mt-8 sm:mt-12">
           <div className="max-w-7xl mx-auto">
@@ -70,7 +129,7 @@ const About = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {/* Card 1 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-yellow-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-yellow-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Who We Are
                 </h3>
@@ -80,7 +139,7 @@ const About = () => {
                 </p>
               </div>
               {/* Card 2 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-green-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-green-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Our Mission
                 </h3>
@@ -90,7 +149,7 @@ const About = () => {
                 </p>
               </div>
               {/* Card 3 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-blue-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-blue-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Our Expertise
                 </h3>
@@ -100,7 +159,7 @@ const About = () => {
                 </p>
               </div>
               {/* Card 4 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-purple-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-purple-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Our Values
                 </h3>
@@ -110,7 +169,7 @@ const About = () => {
                 </p>
               </div>
               {/* Card 5 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-red-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-red-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Why Choose Us
                 </h3>
@@ -120,7 +179,7 @@ const About = () => {
                 </p>
               </div>
               {/* Card 6 */}
-              <div className="relative bg-white shadow-lg rounded-lg p-6 border-t-4 border-teal-400 hover:shadow-xl transition-shadow duration-300">
+              <div className="relative bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] shadow-lg rounded-lg p-6 border-t-4 border-teal-400 hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
                   Get in Touch
                 </h3>

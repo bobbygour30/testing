@@ -3,12 +3,13 @@ import React from "react";
 const Contact = () => {
   return (
     <section className="flex items-center justify-center py-16 px-6 md:px-12 bg-gradient-to-br from-[#F7FF80] via-white to-[#F7FF80] text-black h-[80vh]">
-      <div className="max-w-4xl w-full text-center p-8 bg-gradient-to-b from-green-200 to-white rounded-lg shadow-xl transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+      <div className="max-w-4xl w-full text-center p-8 bg-gradient-to-b from-[#F7FF80] to-white rounded-lg shadow-xl transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
         <h2 className="text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-black">
           Get in Touch
         </h2>
         <p className="text-lg mb-6 text-gray-900 opacity-80 hover:opacity-100 transition-all duration-300">
-          Interested in working with us? Reach out and let's discuss your project.
+          Interested in working with us? Reach out and let's discuss your
+          project.
         </p>
         <form className="flex flex-col gap-4">
           <input
