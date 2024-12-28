@@ -2,25 +2,53 @@ import React from "react";
 
 const UIInfo = () => {
   const services = [
-    { name: "UI Design", description: "Craft visually appealing and user-friendly interfaces." },
-    { name: "Prototyping", description: "Create interactive prototypes for user testing and feedback." },
-    { name: "Wireframing", description: "Design the blueprint for your application or website." },
-    { name: "Responsive Design", description: "Ensure seamless experiences across all devices." },
-    { name: "User Research", description: "Understand user behavior to inform design decisions." },
-    { name: "Accessibility Design", description: "Make your interface accessible to all users." },
-    { name: "Interaction Design", description: "Enhance user engagement through thoughtful interactions." },
-    { name: "UI Testing", description: "Validate designs for usability and functionality." },
-    { name: "Visual Design", description: "Create aesthetic and cohesive visual elements." },
-    { name: "Component Libraries", description: "Build reusable and consistent design components." },
-    { name: "Dark Mode", description: "Design interfaces optimized for dark mode." },
-    { name: "Design Systems", description: "Develop scalable and maintainable design systems." },
+    { 
+      name: "User Research", 
+      description: "Understand user behavior and needs to guide design.", 
+      icon: "fas fa-users" 
+    },
+    { 
+      name: "Wireframing", 
+      description: "Create structural blueprints for websites and apps.", 
+      icon: "fas fa-drafting-compass" 
+    },
+    { 
+      name: "Prototyping", 
+      description: "Develop interactive prototypes for user testing.", 
+      icon: "fas fa-layer-group" 
+    },
+    { 
+      name: "Visual Design", 
+      description: "Craft visually cohesive and appealing interfaces.", 
+      icon: "fas fa-palette" 
+    },
+    { 
+      name: "Interaction Design", 
+      description: "Enhance user engagement through thoughtful interactions.", 
+      icon: "fas fa-hand-pointer" 
+    },
+    { 
+      name: "Usability Testing", 
+      description: "Test interfaces to ensure an intuitive user experience.", 
+      icon: "fas fa-check-circle" 
+    },
+    { 
+      name: "User Interface Design", 
+      description: "Design user-friendly and visually stunning interfaces.", 
+      icon: "fas fa-desktop" 
+    },
+    { 
+      name: "User Experience Design", 
+      description: "Optimize overall user satisfaction with intuitive designs.", 
+      icon: "fas fa-smile" 
+    },
   ];
 
   return (
     <section className="py-12 bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-gray-800 mb-8">
-          UI Design Services
+          UI / UX Design Services
         </h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto text-lg">
           Elevate your user interface with our expert UI design services tailored to create seamless and engaging experiences.
@@ -33,8 +61,8 @@ const UIInfo = () => {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               <div className="flex justify-center items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {service.name.split(" ")[0].charAt(0)}
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className={service.icon}></i>
                 </div>
               </div>
               <h3 className="text-lg font-bold text-center text-gray-800 mb-2 group-hover:text-purple-500">

@@ -21,8 +21,8 @@ const Home = () => {
             innovative strategies and unmatched expertise to unlock the full
             potential of your brand.
           </p>
-          <button className="bg-gradient-to-r from-gray-400 to-[#F7FF80] text-black px-6 py-3 rounded-md shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out">
-            Know More
+          <button className="bg-gradient-to-r from-purple-500 to-[#F7FF80] font-bold text-black px-6 py-3 rounded-md shadow-lg hover:scale-105 transform transition-all duration-300 ease-in-out">
+            <Link to="/contact">Contact Us</Link>
           </button>
         </div>
 

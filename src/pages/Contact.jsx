@@ -26,7 +26,6 @@ const Contact = () => {
             type="tel"
             placeholder="Your Phone Number"
             className="p-3 rounded-md text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#F7FF80] transition-all duration-300 w-full"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             required
           />
           <textarea

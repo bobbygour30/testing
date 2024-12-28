@@ -71,20 +71,8 @@ const About = () => {
             reality.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
-            <div className="flex flex-col items-center text-center group">
-              <img
-                src={assets.teamMember1}
-                alt="Team Member 1"
-                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
-              />
-              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
-                John Doe
-              </h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-800">
-                Project Manager
-              </p>
-            </div>
+            
+            
             {/* Team Member 2 */}
             <div className="flex flex-col items-center text-center group">
               <img
@@ -93,10 +81,10 @@ const About = () => {
                 className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
               />
               <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
-                Jane Smith
+                Sagar
               </h3>
               <p className="text-sm text-gray-600 group-hover:text-gray-800">
-                Lead Developer
+                Backend Developer
               </p>
             </div>
             {/* Team Member 3 */}
@@ -107,10 +95,62 @@ const About = () => {
                 className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
               />
               <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
-                Emily Johnson
+                Bobby
               </h3>
               <p className="text-sm text-gray-600 group-hover:text-gray-800">
-                UI/UX Designer
+                Frontend Developer
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember4}
+                alt="Team Member 3"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Dolly Rani
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Content Writer
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember5}
+                alt="Team Member 3"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Shayana Rout
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Graphic Designer
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember6}
+                alt="Team Member 3"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Aditya Shinde
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Video Editor
+              </p>
+            </div>
+            <div className="flex flex-col items-center text-center group">
+              <img
+                src={assets.teamMember7}
+                alt="Team Member 3"
+                className="w-32 h-32 rounded-full object-cover mb-4 shadow-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              <h3 className="text-lg font-bold text-gray-800 group-hover:text-yellow-500">
+                Shiva
+              </h3>
+              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+                Meta & Google Ads
               </p>
             </div>
           </div>

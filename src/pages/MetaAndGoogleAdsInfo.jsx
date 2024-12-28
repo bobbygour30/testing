@@ -2,18 +2,46 @@ import React from "react";
 
 const MetaAndGoogleAdsInfo = () => {
   const services = [
-    { name: "Awareness", description: "Build brand recognition and reach a wider audience." },
-    { name: "Traffic", description: "Drive high-quality traffic to your website or app." },
-    { name: "Engagement", description: "Boost interaction with your audience through compelling ads." },
-    { name: "Leads", description: "Generate potential customer inquiries and contact details." },
-    { name: "App Promotion", description: "Increase app downloads and user engagement efficiently." },
-    { name: "Sales", description: "Drive purchases and grow your revenue with targeted campaigns." },
-    { name: "Search", description: "Capture intent-based customers through high-performing search ads." },
-    { name: "Performance Max", description: "Leverage Google's full range of ad inventory for maximum results." },
-    { name: "Display", description: "Engage audiences with visually appealing banner ads." },
-    { name: "Video", description: "Tell your story through captivating video ads." },
-    { name: "App", description: "Promote your app across Google platforms and beyond." },
-    { name: "Demand Generation", description: "Create demand and spark interest for your products or services." },
+    { 
+      name: "Search Engine Marketing (SEM)", 
+      description: "Increase visibility through targeted search ads.", 
+      icon: "fas fa-search" 
+    },
+    { 
+      name: "Pay-Per-Click (PPC) Advertising", 
+      description: "Drive traffic and conversions with cost-effective PPC campaigns.", 
+      icon: "fas fa-mouse-pointer" 
+    },
+    { 
+      name: "Display Advertising", 
+      description: "Engage audiences with visually appealing display ads.", 
+      icon: "fas fa-tv" 
+    },
+    { 
+      name: "Social Media Advertising", 
+      description: "Boost your brand's presence on social platforms like Facebook and Instagram.", 
+      icon: "fas fa-share-alt" 
+    },
+    { 
+      name: "Retargeting Ads", 
+      description: "Reconnect with your audience and drive repeat visits.", 
+      icon: "fas fa-undo" 
+    },
+    { 
+      name: "Google Shopping Ads", 
+      description: "Showcase your products directly in search results for better sales.", 
+      icon: "fas fa-shopping-cart" 
+    },
+    { 
+      name: "Facebook Ads", 
+      description: "Run impactful ad campaigns to engage your target audience on Facebook.", 
+      icon: "fab fa-facebook" 
+    },
+    { 
+      name: "Instagram Ads", 
+      description: "Create visually stunning ads tailored for Instagram users.", 
+      icon: "fab fa-instagram" 
+    },
   ];
 
   return (
@@ -33,8 +61,8 @@ const MetaAndGoogleAdsInfo = () => {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               <div className="flex justify-center items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {service.name.split(" ")[0].charAt(0)}
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className={service.icon}></i>
                 </div>
               </div>
               <h3 className="text-lg font-bold text-center text-gray-800 mb-2 group-hover:text-purple-500">

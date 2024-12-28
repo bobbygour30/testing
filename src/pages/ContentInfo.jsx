@@ -2,19 +2,46 @@ import React from "react";
 
 const ContentInfo = () => {
   const services = [
-    { name: "Article Writing", description: "Engage readers with well-researched and compelling articles." },
-    { name: "Blog Writing", description: "Create relatable and informative blog posts tailored to your audience." },
-    { name: "Copywriting", description: "Craft persuasive content that drives action and conversions." },
-    { name: "Email Newsletter Writing", description: "Stay connected with your audience through engaging newsletters." },
-    { name: "Ghostwriting", description: "Bring your ideas to life with professional ghostwriting services." },
-    { name: "Grant Writing", description: "Secure funding with expertly crafted grant proposals." },
-    { name: "Press Release Writing", description: "Announce your news effectively with professionally written press releases." },
-    { name: "Product Description Writing", description: "Showcase your products with clear and enticing descriptions." },
-    { name: "Social Media Content Creation", description: "Boost your online presence with custom social media content." },
-    { name: "Technical Writing", description: "Simplify complex topics with clear and accurate technical writing." },
-    { name: "Website Content Writing", description: "Enhance your site with optimized and engaging web content." },
-    { name: "SEO Content Writing", description: "Improve visibility with search-engine-friendly content." },
-    { name: "Content Editing and Proofreading", description: "Polish your content to perfection with expert editing services." },
+    { 
+      name: "Article Writing", 
+      description: "Engage readers with well-researched and compelling articles.", 
+      icon: "fas fa-file-alt" 
+    },
+    { 
+      name: "Blog Writing", 
+      description: "Create relatable and informative blog posts tailored to your audience.", 
+      icon: "fas fa-pen-nib" 
+    },
+    { 
+      name: "Copywriting", 
+      description: "Craft persuasive content that drives action and conversions.", 
+      icon: "fas fa-copy" 
+    },
+    { 
+      name: "E-book Writing", 
+      description: "Deliver in-depth knowledge with professionally written e-books.", 
+      icon: "fas fa-book" 
+    },
+    { 
+      name: "Email Newsletter Writing", 
+      description: "Stay connected with your audience through engaging newsletters.", 
+      icon: "fas fa-envelope" 
+    },
+    { 
+      name: "Ghostwriting", 
+      description: "Bring your ideas to life with professional ghostwriting services.", 
+      icon: "fas fa-user-secret" 
+    },
+    { 
+      name: "Grant Writing", 
+      description: "Secure funding with expertly crafted grant proposals.", 
+      icon: "fas fa-hand-holding-usd" 
+    },
+    { 
+      name: "Press Release Writing", 
+      description: "Announce your news effectively with professionally written press releases.", 
+      icon: "fas fa-bullhorn" 
+    },
   ];
 
   return (
@@ -34,8 +61,8 @@ const ContentInfo = () => {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               <div className="flex justify-center items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {service.name.split(" ")[0].charAt(0)}
+                <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className={service.icon}></i>
                 </div>
               </div>
               <h3 className="text-lg font-bold text-center text-gray-800 mb-2 group-hover:text-green-500">

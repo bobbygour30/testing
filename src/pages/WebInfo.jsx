@@ -2,18 +2,46 @@ import React from "react";
 
 const WebInfo = () => {
   const services = [
-    { name: "Web Design", description: "Craft visually stunning and user-friendly websites." },
-    { name: "Web Development", description: "Build responsive and high-performing web applications." },
-    { name: "SEO Optimization", description: "Enhance your site's visibility on search engines." },
-    { name: "E-commerce", description: "Develop seamless online stores to boost your sales." },
-    { name: "Content Management", description: "Manage and organize your digital content efficiently." },
-    { name: "Custom Solutions", description: "Tailored web solutions for your unique business needs." },
-    { name: "Maintenance", description: "Ensure your website remains updated and secure." },
-    { name: "API Integration", description: "Connect your site with third-party services effortlessly." },
-    { name: "Performance Optimization", description: "Improve your site's loading speed and user experience." },
-    { name: "Accessibility", description: "Make your website accessible to all users." },
-    { name: "Hosting", description: "Reliable hosting solutions for your website." },
-    { name: "Analytics", description: "Track and analyze your website's performance." },
+    { 
+      name: "Front-end Development", 
+      description: "Build sleek and responsive user interfaces for websites.", 
+      icon: "fas fa-code" 
+    },
+    { 
+      name: "Back-end Development", 
+      description: "Develop robust server-side logic and databases for your applications.", 
+      icon: "fas fa-server" 
+    },
+    { 
+      name: "Full-stack Development", 
+      description: "Comprehensive development for both client and server sides.", 
+      icon: "fas fa-layer-group" 
+    },
+    { 
+      name: "E-commerce Website Development", 
+      description: "Create seamless online stores to enhance your business growth.", 
+      icon: "fas fa-shopping-cart" 
+    },
+    { 
+      name: "Custom Website Development", 
+      description: "Tailor-made websites designed to meet your unique requirements.", 
+      icon: "fas fa-tools" 
+    },
+    { 
+      name: "Website Redesign", 
+      description: "Revamp and modernize your existing website for better performance.", 
+      icon: "fas fa-sync-alt" 
+    },
+    { 
+      name: "Responsive Web Design", 
+      description: "Ensure your site looks great on all devices.", 
+      icon: "fas fa-mobile-alt" 
+    },
+    { 
+      name: "Web Application Development", 
+      description: "Build dynamic and feature-rich web applications.", 
+      icon: "fas fa-laptop-code" 
+    },
   ];
 
   return (
@@ -33,8 +61,8 @@ const WebInfo = () => {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               <div className="flex justify-center items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {service.name.split(" ")[0].charAt(0)}
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className={service.icon}></i>
                 </div>
               </div>
               <h3 className="text-lg font-bold text-center text-gray-800 mb-2 group-hover:text-blue-500">

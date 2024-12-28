@@ -2,18 +2,46 @@ import React from "react";
 
 const InfluencerInfo = () => {
   const services = [
-    { name: "Brand Collaborations", description: "Partner with brands to create impactful campaigns." },
-    { name: "Content Creation", description: "Produce engaging content for various platforms." },
-    { name: "Social Media Growth", description: "Boost your following and engagement rates." },
-    { name: "Campaign Management", description: "Organize and execute successful influencer campaigns." },
-    { name: "Audience Analytics", description: "Understand your audience and optimize content strategies." },
-    { name: "Monetization", description: "Discover ways to earn through your influence." },
-    { name: "Platform Strategy", description: "Tailor strategies for Instagram, TikTok, YouTube, and more." },
-    { name: "Influencer Training", description: "Learn to maximize your impact and grow professionally." },
-    { name: "Reputation Management", description: "Build and maintain a positive personal brand." },
-    { name: "Event Participation", description: "Represent brands and engage audiences at events." },
-    { name: "Video Production", description: "Create high-quality video content to captivate audiences." },
-    { name: "Sponsored Posts", description: "Promote brands effectively through sponsored content." },
+    { 
+      name: "Sponsored Content", 
+      description: "Create engaging sponsored posts to promote brands.", 
+      icon: "fas fa-ad" 
+    },
+    { 
+      name: "Product Reviews", 
+      description: "Provide authentic and detailed reviews of products.", 
+      icon: "fas fa-star" 
+    },
+    { 
+      name: "Influencer Takeovers", 
+      description: "Manage brand accounts for exclusive influencer content.", 
+      icon: "fas fa-users" 
+    },
+    { 
+      name: "Affiliate Marketing", 
+      description: "Generate revenue through affiliate partnerships.", 
+      icon: "fas fa-handshake" 
+    },
+    { 
+      name: "Brand Ambassadors", 
+      description: "Represent brands and foster long-term collaborations.", 
+      icon: "fas fa-flag" 
+    },
+    { 
+      name: "Social Media Contests", 
+      description: "Engage followers with interactive and fun contests.", 
+      icon: "fas fa-trophy" 
+    },
+    { 
+      name: "Influencer Events", 
+      description: "Participate in events to connect with audiences and brands.", 
+      icon: "fas fa-calendar-alt" 
+    },
+    { 
+      name: "Content Partnerships", 
+      description: "Collaborate with other creators for impactful content.", 
+      icon: "fas fa-hand-holding-heart" 
+    },
   ];
 
   return (
@@ -33,8 +61,8 @@ const InfluencerInfo = () => {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-red-500 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               <div className="flex justify-center items-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                  {service.name.split(" ")[0].charAt(0)}
+                <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full flex items-center justify-center text-white text-2xl">
+                  <i className={service.icon}></i>
                 </div>
               </div>
               <h3 className="text-lg font-bold text-center text-gray-800 mb-2 group-hover:text-pink-500">

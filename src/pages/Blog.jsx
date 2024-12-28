@@ -5,7 +5,7 @@ const Blog = () => {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    image: null, // Add image field
+    image: null,
   });
   const [imagePreview, setImagePreview] = useState(null);
 
@@ -18,7 +18,7 @@ const Blog = () => {
     const file = e.target.files[0];
     if (file) {
       setFormData({ ...formData, image: file });
-      setImagePreview(URL.createObjectURL(file)); // Generate a preview URL
+      setImagePreview(URL.createObjectURL(file));
     }
   };
 
@@ -28,7 +28,7 @@ const Blog = () => {
       const newBlog = {
         title: formData.title,
         description: formData.description,
-        image: imagePreview, // Use the preview URL for display
+        image: imagePreview,
       };
       setBlogs([...blogs, newBlog]);
       setFormData({ title: "", description: "", image: null });
@@ -40,21 +40,30 @@ const Blog = () => {
     <section className="py-16 px-6 md:px-12 bg-gradient-to-br from-[#F7FF80] via-white to-[#F7FF80] text-black">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h1 className="text-5xl p-7 font-extrabold text-transparent bg-clip-text bg-black mb-6">
+        <h1 className="text-5xl font-extrabold text-gray-800 mb-6">
           Welcome to Our Blog
         </h1>
-        <p className="text-lg font-medium text-gray-800 max-w-3xl mx-auto">
+        <p className="text-lg font-medium text-gray-700 max-w-3xl mx-auto">
           Discover insights, strategies, and stories from industry leaders.
-          Learn about the latest in technology, design, and business growth to inspire your journey.
+          Learn about the latest in technology, design, and business growth to
+          inspire your journey.
         </p>
       </div>
 
       {/* Blog Submission Form */}
       <section className="max-w-3xl mx-auto mb-16">
-        <h2 className="text-3xl font-bold text-black mb-6 text-center">Write a Blog</h2>
-        <form onSubmit={handleFormSubmit} className="bg-gradient-to-br from-[#F7FF80] to-white p-6 rounded-lg shadow-md">
-          <div className="mb-4">
-            <label htmlFor="title" className="block text-lg font-medium text-gray-700 mb-2">
+        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          Write a Blog
+        </h2>
+        <form
+          onSubmit={handleFormSubmit}
+          className="bg-gradient-to-tr from-[#F7FF80] via-white to-[#F7FF80] p-8 rounded-xl shadow-lg space-y-6"
+        >
+          <div>
+            <label
+              htmlFor="title"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
               Title
             </label>
             <input
@@ -63,13 +72,16 @@ const Blog = () => {
               name="title"
               value={formData.title}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F7FF80]"
               placeholder="Enter blog title"
               required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-lg font-medium text-gray-700 mb-2">
+          <div>
+            <label
+              htmlFor="description"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
               Description
             </label>
             <textarea
@@ -77,13 +89,17 @@ const Blog = () => {
               name="description"
               value={formData.description}
               onChange={handleInputChange}
-              className="w-full p-3 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F7FF80]"
               placeholder="Enter blog description"
+              rows="4"
               required
             ></textarea>
           </div>
-          <div className="mb-4">
-            <label htmlFor="image" className="block text-lg font-medium text-gray-700 mb-2">
+          <div>
+            <label
+              htmlFor="image"
+              className="block text-lg font-medium text-gray-700 mb-2"
+            >
               Upload Image
             </label>
             <input
@@ -106,16 +122,18 @@ const Blog = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+            className="w-full bg-[#F7FF80] text-gray-800 py-3 px-4 rounded-lg font-semibold text-lg hover:bg-gray-200 transition-all duration-300"
           >
-            Submit
+            Submit Blog
           </button>
         </form>
       </section>
 
       {/* Display User Blogs */}
-      <section className="max-w-7xl mx-auto mb-16">
-        <h2 className="text-3xl font-bold text-black mb-8 text-center">User Blogs</h2>
+      <section className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+          User Blogs
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, index) => (
             <div
@@ -130,7 +148,9 @@ const Blog = () => {
                 />
               )}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-black mb-4">{blog.title}</h3>
+                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  {blog.title}
+                </h3>
                 <p className="text-gray-700">{blog.description}</p>
               </div>
             </div>
