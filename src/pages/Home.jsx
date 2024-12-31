@@ -42,8 +42,8 @@ const Home = () => {
           <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-black text-center mb-6">
             Our Services
           </h2>
-          <div className="flex justify-center">
-            <h3 className="text-2xl text-white w-1/2 rounded-full text-center mb-16 font-semibold bg-black">
+          <div className="flex justify-center px-4 sm:px-6">
+            <h3 className="text-lg sm:text-xl md:text-2xl text-white w-4/5 sm:w-3/4 md:w-1/2 rounded-full text-center mb-8 sm:mb-12 md:mb-16 font-semibold bg-black">
               What We Do Best 🚀
             </h3>
           </div>
@@ -53,12 +53,12 @@ const Home = () => {
               {
                 title: "Graphic Designing",
                 description:
-                  "We design visuals that don’t just look good—they make people stop scrolling. From eye-catching logos and packaging to social media graphics and promotional materials, we create designs that communicate your brand’s message loud and clear.",
+                  "We design visuals that don’t just look good — they make people stop scrolling. From eye-catching logos and packaging to social media graphics and promotional materials, we create designs that communicate your brand’s message loud and clear.",
               },
               {
                 title: "Video Editing",
                 description:
-                  "Videos are the most engaging form of content—but only if they’re done right. We specialize in attention-grabbing edits with professionals for ads, social media, corporate presentations, and more that keep your audience hooked until the very last.",
+                  "Videos are the most engaging form of content — but only if they’re done right. We specialize in attention-grabbing edits with professionals for ads, social media, corporate presentations, and more that keep your audience hooked until the very last.",
               },
               {
                 title: "Content Writing",
@@ -68,7 +68,7 @@ const Home = () => {
               {
                 title: "Web Development",
                 description:
-                  "A website should do more than just exist—it should work hard for your brand. We create sleek, fast, and responsive websites that engage visitors, drive conversions, and look amazing on any device. Oh, and managing it? Easier than making toast.",
+                  "A website should do more than just exist — it should work hard for your brand. We create sleek, fast, and responsive websites that engage visitors, drive conversions, and look amazing on any device. Oh, and managing it? Easier than making toast.",
               },
               {
                 title: "App Development",
@@ -171,10 +171,10 @@ const Home = () => {
       {/* Additional Content Section */}
       <section className="py-16 px-6 md:px-12 bg-[#F7FF80]">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-black mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-black mb-4 sm:mb-6">
             Why Choose HYBY?
           </h2>
-          <p className="text-lg text-white mb-12 bg-black rounded-full">
+          <p className="text-base sm:text-lg md:text-xl text-white mb-8 sm:mb-10 md:mb-12 bg-black rounded-full px-4 sm:px-6 md:px-8 py-2 sm:py-3">
             We’re not just another agency – we’re your creative partner. Here’s
             why you’ll love working with us 🌟
           </p>

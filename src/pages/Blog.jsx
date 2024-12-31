@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -8,6 +8,17 @@ const Blog = () => {
     image: null,
   });
   const [imagePreview, setImagePreview] = useState(null);
+
+  // Retrieve blogs from localStorage when the component mounts
+  useEffect(() => {
+    const savedBlogs = JSON.parse(localStorage.getItem("blogs")) || [];
+    setBlogs(savedBlogs);
+  }, []);
+
+  // Save blogs to localStorage whenever blogs state changes
+  useEffect(() => {
+    localStorage.setItem("blogs", JSON.stringify(blogs));
+  }, [blogs]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
