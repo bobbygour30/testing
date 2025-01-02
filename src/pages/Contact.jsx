@@ -15,9 +15,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/submit", {
+      const response = await fetch("http://75.119.146.185/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(formData),
       });
       if (response.ok) {
@@ -27,7 +30,7 @@ const Contact = () => {
         alert("Failed to submit form");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error submitting the form:", error);
       alert("An error occurred. Please try again later.");
     }
   };
