@@ -8,6 +8,10 @@ import teamMember2 from "./teamMember2.png";
 import teamMember5 from "./teamMember5.png";
 import teamMember6 from "./teamMember6.png";
 import teamMember7 from "./teamMember7.png";
+import angryBird from "./angrybird.jpg";
+import casestudy from "./casestudy.jpg";
+import desktop from "./desktop.png";
+import nike from "./nike.jpg";
 
 const assets = {
   logo,
@@ -20,6 +24,10 @@ const assets = {
   teamMember5,
   teamMember6,
   teamMember7,
+  angryBird,
+  casestudy,
+  desktop,
+  nike,
 };
 
 export default assets;
