@@ -12,6 +12,8 @@ import angryBird from "./angrybird.jpg";
 import casestudy from "./casestudy.jpg";
 import desktop from "./desktop.png";
 import nike from "./nike.jpg";
+import hero2 from "./hero2.jpeg";
+
 
 const assets = {
   logo,
@@ -28,6 +30,8 @@ const assets = {
   casestudy,
   desktop,
   nike,
+  hero2
+  
 };
 
 export default assets;

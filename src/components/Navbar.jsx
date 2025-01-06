@@ -10,47 +10,53 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full">
-      <nav className="bg-white bg-opacity-30 backdrop-blur-lg flex items-center justify-center text-black relative h-[75px] sm:h-24 w-full md:w-[90%] lg:w-[70%] rounded-full shadow-lg">
-        <div className="container mx-auto  px-4 py-3  flex justify-between items-center flex-wrap">
+    <div className="w-full">
+      <nav className="bg-white bg-opacity-30 backdrop-blur-lg flex items-center justify-between text-black relative h-[75px] sm:h-24 w-full mx-auto md:w-[90%] lg:w-[70%] rounded-full shadow-lg">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center flex-wrap w-full">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to={"/"}>
+            <Link to="/">
               <img src={assets.logo} alt="Logo" className="h-16 sm:h-[70px]" />
             </Link>
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-8 font-medium">
+          <ul className="hidden md:flex space-x-6 font-medium text-sm sm:text-base lg:text-lg">
             <li className="relative group font-bold">
               <Link to="/" onClick={handleLinkClick}>
                 Home
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
-              <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </li>
             <li className="relative group font-bold">
               <Link to="/about" onClick={handleLinkClick}>
                 About
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
-              <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </li>
             <li className="relative group font-bold">
               <Link to="/blog" onClick={handleLinkClick}>
                 Blog
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
-              <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </li>
             <li className="relative group font-bold">
               <Link to="/services" onClick={handleLinkClick}>
                 Services
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
-              <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </li>
             <li className="relative group font-bold">
               <Link to="/portfolio" onClick={handleLinkClick}>
                 Portfolio
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
-              <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </li>
+            <li className="relative group font-bold">
+              <Link to="/influencer" onClick={handleLinkClick}>
+                Influencer
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              </Link>
             </li>
           </ul>
 
@@ -137,6 +143,15 @@ const Navbar = () => {
                   className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
                 >
                   Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/influencer"
+                  onClick={handleLinkClick}
+                  className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
+                >
+                  Influencer
                 </Link>
               </li>
               <li>
