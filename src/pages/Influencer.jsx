@@ -1,6 +1,7 @@
 import React from "react";
 import assets from "../assets/assests";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Influencer = () => {
   const [activeCategory, setActiveCategory] = useState("Beauty");
@@ -66,9 +67,11 @@ const Influencer = () => {
             </h1>
             <h2 className="text-5xl md:text-5xl font-bold">Influencer</h2>
             <p className="text-base text-gray-500">For Your Business</p>
-            <button className="mt-6 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
-              Get Started
-            </button>
+            <Link to={"/influencerdetails"}>
+              <button className="mt-6 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800">
+                Get Started
+              </button>
+            </Link>
           </div>
 
           {/* Image Section */}
@@ -266,25 +269,58 @@ const Influencer = () => {
       </div>
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-bold mb-8 text-center">
-          Our Popular Influencers
+          What We Provide ?
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {Array(6)
-            .fill("")
-            .map((_, index) => (
-              <div
-                key={index}
-                className="border rounded-lg p-6 shadow-lg bg-white text-center"
-              >
-                <div className="flex items-center justify-center mb-4 text-lg text-gray-700">
-                  <i className="fas fa-users text-blue-500 text-2xl"></i>
-                  <span className="ml-3 font-medium">
-                    Social Media Management
-                  </span>
-                </div>
-                <div className="text-sm text-gray-500">Data</div>
+          {[
+            {
+              title: "Brand Promotion",
+              icon: "fas fa-bullhorn", // Megaphone for promotion
+              description:
+                "Boosts brand visibility and recognition through strategic campaigns that highlight the unique qualities of your brand across multiple platforms.",
+            },
+            {
+              title: "Song Promotion",
+              icon: "fas fa-music", // Music note for songs
+              description:
+                "Focuses on increasing a song's reach and popularity by sharing it on social media, streaming platforms, and engaging audiences through music-related content.",
+            },
+            {
+              title: "Meme Marketing",
+              icon: "fas fa-laugh-squint", // Laughing emoji for memes
+              description:
+                "Leverages humor and relatable content in the form of memes to create viral campaigns, enhancing engagement and spreading brand awareness.",
+            },
+            {
+              title: "Event Promotion",
+              icon: "fas fa-calendar-alt", // Calendar for events
+              description:
+                "Drives attendance and visibility for events by utilizing social media, email campaigns, and targeted advertising to generate buzz and excitement.",
+            },
+            {
+              title: "Content Marketing",
+              icon: "fas fa-pen-nib", // Pen nib for content creation
+              description:
+                "Builds trust and authority by creating valuable, engaging, and informative content tailored to your target audience, driving traffic and fostering loyalty.",
+            },
+            {
+              title: "Movie Marketing",
+              icon: "fas fa-film", // Film strip for movies
+              description:
+                "Maximizes a film's reach through trailers, posters, social media campaigns, and collaborations, building anticipation and driving box office success.",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="border rounded-lg p-6 shadow-lg bg-gradient-to-r from-[#F7FF80] via-[white] to-[#F7FF80] text-center"
+            >
+              <div className="flex items-center justify-center mb-4 text-lg text-gray-700">
+                <i className={`${item.icon} text-blue-500 text-2xl`}></i>
+                <span className="ml-3 font-bold text-2xl">{item.title}</span>
               </div>
-            ))}
+              <div className="text-sm text-gray-500">{item.description}</div>
+            </div>
+          ))}
         </div>
       </div>
       <div className="flex flex-col items-center justify-center min-h-screen">
@@ -332,122 +368,122 @@ const Influencer = () => {
       </div>
       {/* why choose us */}
       <div className="bg-yellow-50 p-4">
-      <h2 className="text-2xl font-bold mb-4 text-center">Why Choose Us</h2>
-      <div className="text-center mb-10">
-        <h3 className="text-xl font-bold">Perfect Media With</h3>
-        <h3 className="text-xl font-bold">Perfect Partner</h3>
+        <h2 className="text-2xl font-bold mb-4 text-center">Why Choose Us</h2>
+        <div className="text-center mb-10">
+          <h3 className="text-xl font-bold">Perfect Media With</h3>
+          <h3 className="text-xl font-bold">Perfect Partner</h3>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="flex flex-col items-center">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">Affordable Price</span>
+            </div>
+            <div className="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">Guaranteed Result</span>
+            </div>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">Years Experience</span>
+            </div>
+            <div className="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">Partner Worldwide</span>
+            </div>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">24/7 Support</span>
+            </div>
+            <div className="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 text-green-500"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75"
+                />
+              </svg>
+              <span className="ml-2">Industry Expert</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="flex flex-col items-center">
-          <div className="flex items-center mb-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">Affordable Price</span>
-          </div>
-          <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">Guaranteed Result</span>
-          </div>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="flex items-center mb-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">Years Experience</span>
-          </div>
-          <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">Partner Worldwide</span>
-          </div>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="flex items-center mb-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">24/7 Support</span>
-          </div>
-          <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6 text-green-500"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12.75L11.25 15 15 9.75"
-              />
-            </svg>
-            <span className="ml-2">Industry Expert</span>
-          </div>
-        </div>
-      </div>
-    </div>
     </>
   );
 };

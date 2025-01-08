@@ -19,6 +19,7 @@ import UIInfo from "./pages/UIInfo";
 import InfluencerInfo from "./pages/InfluencerInfo";
 import MetaAndGoogleAdsInfo from "./pages/MetaAndGoogleAdsInfo";
 import Influencer from "./pages/Influencer";
+import InfluencerDetails from "./pages/InfluencerDetails";
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/influencer" element={<Influencer />} />
+          <Route path="/influencerdetails" element={<InfluencerDetails />} />
           <Route path="/services/graphics" element={<GraphicsInfo />} />
           <Route path="/services/video" element={<VideoInfo />} />
           <Route path="/services/content" element={<ContentInfo />} />
