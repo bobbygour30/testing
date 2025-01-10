@@ -9,12 +9,24 @@ const InfluencerDetails = () => {
     about: "", 
   });
 
+  const [platforms, setPlatforms] = useState([{ platform: "", platformLink: "" }]);
   const [photo, setPhoto] = useState(null); // For storing the uploaded photo
   const [preview, setPreview] = useState(null); // For image preview
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handlePlatformChange = (index, e) => {
+    const { name, value } = e.target;
+    const updatedPlatforms = [...platforms];
+    updatedPlatforms[index][name] = value;
+    setPlatforms(updatedPlatforms);
+  };
+
+  const handleAddPlatform = () => {
+    setPlatforms([...platforms, { platform: "", platformLink: "" }]);
   };
 
   const handlePhotoChange = (e) => {
@@ -29,11 +41,13 @@ const InfluencerDetails = () => {
     e.preventDefault();
     const data = new FormData();
     data.append("name", formData.name);
-    data.append("platform", formData.platform);
-    data.append("platformLink", formData.platformLink);
     data.append("followers", formData.followers);
     data.append("about", formData.about); 
     data.append("photo", photo); 
+    platforms.forEach((platform, index) => {
+      data.append(`platforms[${index}][platform]`, platform.platform);
+      data.append(`platforms[${index}][platformLink]`, platform.platformLink);
+    });
 
     try {
       const response = await fetch("https://your-backend-endpoint.com/api/influencers", {
@@ -46,6 +60,7 @@ const InfluencerDetails = () => {
         setFormData({ name: "", platform: "", platformLink: "", followers: "", about: "" });
         setPhoto(null);
         setPreview(null);
+        setPlatforms([{ platform: "", platformLink: "" }]);
       } else {
         alert("Failed to submit influencer data.");
       }
@@ -94,37 +109,47 @@ const InfluencerDetails = () => {
             )}
           </div>
 
-          {/* Platform */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Platform</label>
-            <select
-              name="platform"
-              value={formData.platform}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-            >
-              <option value="">Select Platform</option>
-              <option value="Instagram">Instagram</option>
-              <option value="YouTube">YouTube</option>
-              <option value="TikTok">TikTok</option>
-              <option value="Twitter">Twitter</option>
-              <option value="Facebook">Facebook</option>
-            </select>
-          </div>
+          {/* Platforms */}
+          {platforms.map((platform, index) => (
+            <div key={index} className="space-y-2">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Platform</label>
+                <select
+                  name="platform"
+                  value={platform.platform}
+                  onChange={(e) => handlePlatformChange(index, e)}
+                  required
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                >
+                  <option value="">Select Platform</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="YouTube">YouTube</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Twitter">Twitter</option>
+                  <option value="Facebook">Facebook</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Platform Link</label>
+                <input
+                  type="url"
+                  name="platformLink"
+                  value={platform.platformLink}
+                  onChange={(e) => handlePlatformChange(index, e)}
+                  required
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
+            </div>
+          ))}
 
-          {/* Platform Link */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Platform Link</label>
-            <input
-              type="url"
-              name="platformLink"
-              value={formData.platformLink}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-            />
-          </div>
+          <button
+            type="button"
+            onClick={handleAddPlatform}
+            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+          >
+            Add Another Platform
+          </button>
 
           {/* Followers */}
           <div>

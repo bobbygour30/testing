@@ -29,14 +29,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="relative group font-bold">
-              <Link to="/about" onClick={handleLinkClick}>
-                About
-                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-              </Link>
-            </li>
-            <li className="relative group font-bold">
-              <Link to="/blog" onClick={handleLinkClick}>
-                Blog
+              <Link to="/influencer" onClick={handleLinkClick}>
+                Influencer
                 <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             </li>
@@ -53,8 +47,14 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="relative group font-bold">
-              <Link to="/influencer" onClick={handleLinkClick}>
-                Influencer
+              <Link to="/blog" onClick={handleLinkClick}>
+                Blog
+                <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              </Link>
+            </li>
+            <li className="relative group font-bold">
+              <Link to="/about" onClick={handleLinkClick}>
+                About
                 <span className="absolute rounded-full left-0 bottom-[-1px] w-full h-[3px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </Link>
             </li>
@@ -111,20 +111,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/influencer"
                   onClick={handleLinkClick}
                   className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/blog"
-                  onClick={handleLinkClick}
-                  className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
-                >
-                  Blog
+                  Influencer
                 </Link>
               </li>
               <li>
@@ -147,11 +138,20 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/influencer"
+                  to="/blog"
                   onClick={handleLinkClick}
                   className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
                 >
-                  Influencer
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  onClick={handleLinkClick}
+                  className="hover:text-yellow-300 transition-all duration-300 transform hover:scale-110"
+                >
+                  About
                 </Link>
               </li>
               <li>
