@@ -68,6 +68,9 @@ const Footer = () => {
             <Link to="/contact" className="hover:text-yellow-400">
               Contact
             </Link>
+            <Link to="/influencer/admin" className="hover:text-yellow-400">
+              Admin
+            </Link>
           </nav>
 
           {/* Social Media Links */}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminComponent = () => {
   // Admin Login States
@@ -6,7 +7,7 @@ const AdminComponent = () => {
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [error, setError] = useState('');
-  
+
   // Influencer Management States
   const [influencerId, setInfluencerId] = useState('');
   const [status, setStatus] = useState(null);
@@ -17,6 +18,9 @@ const AdminComponent = () => {
     username: 'admin123',
     password: 'adminpassword',
   };
+
+  // Initialize navigate from react-router-dom
+  const navigate = useNavigate();
 
   // Effect hook to check if user is authenticated when the component mounts
   useEffect(() => {
@@ -65,11 +69,18 @@ const AdminComponent = () => {
     }
   };
 
+  // Handle logout functionality
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated');
+    setIsAuthenticated(false);
+    navigate('/influencer'); // Redirect to the login page
+  };
+
   // If user is authenticated, render the admin panel; otherwise, show the login form
   if (!isAuthenticated) {
     return (
-      <div className="admin-login-container flex justify-center items-center h-screen bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+      <div className="admin-login-container flex justify-center items-center h-screen bg-gradient-to-b from-[#F7FF80] via-white to-[#F7FF80]">
+        <div className="bg-gradient-to-r from-[#F7FF80] via-white to-[#F7FF80] p-8 rounded-lg shadow-lg w-96">
           <h1 className="text-2xl font-bold text-center mb-6 text-blue-600">Admin Login</h1>
           <div className="mb-4">
             <input
@@ -131,6 +142,14 @@ const AdminComponent = () => {
           {message && <p className="text-green-500 mt-4 text-center">{message}</p>}
           {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
         </div>
+
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 text-white px-4 py-2 rounded w-full mt-4"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );
