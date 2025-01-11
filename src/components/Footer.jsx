@@ -110,7 +110,7 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm">
           <p>
-            &copy; {new Date().getFullYear()} HYBY Connect. All Rights Reserved.
+            &copy; {new Date().getFullYear()} HYBY CONNECT PVT. LTD. All Rights Reserved.
           </p>
           <p className="text-xs mt-2">
             Designed with <span className="text-yellow-400">passion</span> by

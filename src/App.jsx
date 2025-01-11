@@ -20,6 +20,7 @@ import InfluencerInfo from "./pages/InfluencerInfo";
 import MetaAndGoogleAdsInfo from "./pages/MetaAndGoogleAdsInfo";
 import Influencer from "./pages/Influencer";
 import InfluencerDetails from "./pages/InfluencerDetails";
+import AdminComponent from "./pages/AdminComponent";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/influencer" element={<Influencer />} />
+          <Route path="/influencer/admin" element={<AdminComponent />} />
           <Route path="/influencerdetails" element={<InfluencerDetails />} />
           <Route path="/services/graphics" element={<GraphicsInfo />} />
           <Route path="/services/video" element={<VideoInfo />} />

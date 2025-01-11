@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import assets from "../assets/assests";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Influencer = () => {
   const [activeCategory, setActiveCategory] = useState("Beauty");
-  const categorie = ["Entertainment", "Comedy", "Beauty", "Sport"];
+  const categorie = [
+    "Comedy", "Entertainment", "Fashion", "Beauty", "Fitness", "Travel",
+    "Food", "Lifestyle", "Tech", "Gaming", "Art", "Parenting",
+    "Finance", "Motivation", "Education", "Health", "Pet",
+    "Music", "Environmental"
+  ];
+
   const creators = [
     { id: 1, name: "Canva", icon: "📘" },
     { id: 2, name: "Icon 2", icon: "🔥" },
@@ -16,46 +21,37 @@ const Influencer = () => {
     { id: 7, name: "Icon 7", icon: "🦁" },
     { id: 8, name: "Icon 8", icon: "🏙️" },
   ];
+
   const stats = [
     { id: 1, value: "1000+", label: "Satisfied Client", color: "bg-red-500" },
     { id: 2, value: "550+", label: "Project Rate", color: "bg-green-500" },
     { id: 3, value: "98%", label: "Positive Review", color: "bg-black" },
     { id: 4, value: "20+", label: "Team Member", color: "bg-purple-500" },
   ];
+
   const [secondActiveCategory, setSecondActiveCategory] = useState("Nano");
   const categories = ["Nano", "Micro", "Mid-tier", "Macro", "Mega", "Elite"];
+  const [influencers, setInfluencers] = useState([]);
 
-  // Sample data for influencers
-  const influencers = [
-    {
-      id: 1,
-      name: "Riya Singh",
-      description: "Comedy, Funny",
-      img: "https://via.placeholder.com/300x200",
-      socials: ["instagram", "youtube", "facebook"],
-    },
-    {
-      id: 2,
-      name: "Arjun Verma",
-      description: "Tech Enthusiast",
-      img: "https://via.placeholder.com/300x200",
-      socials: ["instagram", "youtube", "facebook"],
-    },
-    {
-      id: 3,
-      name: "Meera Patel",
-      description: "Fashion & Lifestyle",
-      img: "https://via.placeholder.com/300x200",
-      socials: ["instagram", "youtube", "facebook"],
-    },
-    {
-      id: 4,
-      name: "Rahul Sharma",
-      description: "Travel Blogger",
-      img: "https://via.placeholder.com/300x200",
-      socials: ["instagram", "youtube", "facebook"],
-    },
-  ];
+  // New state for filter status
+  const [statusFilter, setStatusFilter] = useState(null);
+
+  useEffect(() => {
+    const fetchInfluencers = async () => {
+      try {
+        // Prepare the query parameter for the status filter if it exists
+        const query = statusFilter !== null ? `?status=${statusFilter}` : '';
+        const response = await fetch(`${import.meta.env.BASE_URL}/api/get_influencers${query}`);
+        const data = await response.json();
+        setInfluencers(data);
+      } catch (error) {
+        console.error("Error fetching influencer data:", error);
+      }
+    };
+
+    fetchInfluencers();
+  }, [statusFilter]);
+
   return (
     <>
       <div className="w-full flex items-center justify-center mt-24 rounded-xl lg:h-full">
@@ -94,10 +90,9 @@ const Influencer = () => {
           </div>
         </div>
       </div>
+
       <div className="bg-[#F7FF80] py-10">
-        <h1 className="text-xl font-bold text-center mb-8">
-          550+ Popular Creator
-        </h1>
+        <h1 className="text-xl font-bold text-center mb-8">550+ Popular Creator</h1>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-4xl mx-auto">
           {creators.map((creator) => (
             <div
@@ -109,6 +104,7 @@ const Influencer = () => {
           ))}
         </div>
       </div>
+
       <div className="bg-[#F7FF80] py-10">
         <h1 className="text-xl font-bold text-center mb-8">About Us</h1>
         <div className="flex flex-col lg:flex-row items-center max-w-7xl mx-auto px-4 lg:space-x-10">
@@ -146,93 +142,54 @@ const Influencer = () => {
           </div>
         </div>
       </div>
+
       <div className="bg-[#F7FF80] py-10 px-6 sm:py-8 sm:px-4">
         <h2 className="text-3xl sm:text-2xl font-bold text-center mb-6">
           Our Popular Influencer
         </h2>
 
-        {/* Category Tabs */}
-        <div className="flex justify-center flex-wrap gap-4 mb-8">
-          {categorie.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                activeCategory === category
-                  ? "bg-black text-white"
-                  : "bg-gray-300 text-black"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        {/* Influencer Card */}
-        <div className="bg-gray-100 rounded-xl shadow-lg p-6 max-w-lg mx-auto">
-          <img
-            src="https://via.placeholder.com/300x200"
-            alt="Influencer"
-            className="rounded-lg w-full mb-4"
-          />
-          <div className="text-center">
-            <h3 className="text-xl sm:text-lg font-semibold">Riya Singh</h3>
-            <p className="text-sm text-gray-600">Comedy, Funny</p>
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex justify-center space-x-6 mt-4">
-            <a href="#" className="text-black hover:text-gray-700">
-              {/* SVG Icon */}
-            </a>
-            <a href="#" className="text-black hover:text-gray-700">
-              {/* SVG Icon */}
-            </a>
-            <a href="#" className="text-black hover:text-gray-700">
-              {/* SVG Icon */}
-            </a>
+        {/* Horizontal Scrollable Categories */}
+        <div className="overflow-x-auto mb-8">
+          <div className="flex space-x-4 px-6">
+            {categorie.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold ${
+                  activeCategory === category ? "bg-black text-white" : "bg-gray-300 text-black"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center mt-6 space-x-2">
-          <div className="w-3 h-3 rounded-full bg-black"></div>
-          <div className="w-3 h-3 rounded-full bg-gray-400"></div>
-          <div className="w-3 h-3 rounded-full bg-gray-400"></div>
-        </div>
-      </div>
-
-      <div className="bg-[#F7FF80] py-10 px-6 sm:py-8 sm:px-4">
-        <h2 className="text-3xl sm:text-2xl font-bold text-center mb-6">
-          Influencer Tiers
-        </h2>
-
-        {/* Category Tabs */}
-        <div className="flex justify-center flex-wrap gap-4 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSecondActiveCategory(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-semibold ${
-                secondActiveCategory === category
-                  ? "bg-black text-white"
-                  : "bg-gray-300 text-black"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+        {/* Filter by Status */}
+        <div className="flex justify-center space-x-4 mb-8">
+          <button
+            onClick={() => setStatusFilter(true)}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold ${statusFilter === true ? "bg-black text-white" : "bg-gray-300 text-black"}`}
+          >
+            Active
+          </button>
+          <button
+            onClick={() => setStatusFilter(false)}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold ${statusFilter === false ? "bg-black text-white" : "bg-gray-300 text-black"}`}
+          >
+            Inactive
+          </button>
         </div>
 
         {/* Influencer Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {influencers.map((influencer) => (
             <div
-              key={influencer.id}
+              key={influencer._id}
               className="bg-gray-100 rounded-xl shadow-lg p-6"
             >
               <img
-                src={influencer.img}
+                src={`/${influencer.photo}`} // Assuming the image path is relative to the public directory
                 alt={influencer.name}
                 className="rounded-lg w-full mb-4"
               />
@@ -240,248 +197,24 @@ const Influencer = () => {
                 <h3 className="text-xl sm:text-lg font-semibold">
                   {influencer.name}
                 </h3>
-                <p className="text-sm text-gray-600">
-                  {influencer.description}
-                </p>
+                <p className="text-sm text-gray-600">{influencer.about}</p>
               </div>
 
               {/* Social Media Icons */}
               <div className="flex justify-center space-x-6 mt-4">
-                {influencer.socials.includes("instagram") && (
-                  <a href="#" className="text-black hover:text-gray-700">
-                    {/* SVG Icon */}
+                {influencer.platforms.map((platform, index) => (
+                  <a
+                    key={index}
+                    href={platform.platformLink}
+                    className="text-black hover:text-gray-700"
+                  >
+                    {/* Add corresponding platform icons */}
+                    {platform.platform}
                   </a>
-                )}
-                {influencer.socials.includes("youtube") && (
-                  <a href="#" className="text-black hover:text-gray-700">
-                    {/* SVG Icon */}
-                  </a>
-                )}
-                {influencer.socials.includes("facebook") && (
-                  <a href="#" className="text-black hover:text-gray-700">
-                    {/* SVG Icon */}
-                  </a>
-                )}
+                ))}
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-bold mb-8 text-center">
-          What We Provide ?
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            {
-              title: "Brand Promotion",
-              icon: "fas fa-bullhorn", // Megaphone for promotion
-              description:
-                "Boosts brand visibility and recognition through strategic campaigns that highlight the unique qualities of your brand across multiple platforms.",
-            },
-            {
-              title: "Song Promotion",
-              icon: "fas fa-music", // Music note for songs
-              description:
-                "Focuses on increasing a song's reach and popularity by sharing it on social media, streaming platforms, and engaging audiences through music-related content.",
-            },
-            {
-              title: "Meme Marketing",
-              icon: "fas fa-laugh-squint", // Laughing emoji for memes
-              description:
-                "Leverages humor and relatable content in the form of memes to create viral campaigns, enhancing engagement and spreading brand awareness.",
-            },
-            {
-              title: "Event Promotion",
-              icon: "fas fa-calendar-alt", // Calendar for events
-              description:
-                "Drives attendance and visibility for events by utilizing social media, email campaigns, and targeted advertising to generate buzz and excitement.",
-            },
-            {
-              title: "Content Marketing",
-              icon: "fas fa-pen-nib", // Pen nib for content creation
-              description:
-                "Builds trust and authority by creating valuable, engaging, and informative content tailored to your target audience, driving traffic and fostering loyalty.",
-            },
-            {
-              title: "Movie Marketing",
-              icon: "fas fa-film", // Film strip for movies
-              description:
-                "Maximizes a film's reach through trailers, posters, social media campaigns, and collaborations, building anticipation and driving box office success.",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="border rounded-lg p-6 shadow-lg bg-gradient-to-r from-[#F7FF80] via-[white] to-[#F7FF80] text-center"
-            >
-              <div className="flex items-center justify-center mb-4 text-lg text-gray-700">
-                <i className={`${item.icon} text-blue-500 text-2xl`}></i>
-                <span className="ml-3 font-bold text-2xl">{item.title}</span>
-              </div>
-              <div className="text-sm text-gray-500">{item.description}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        {/* First Section */}
-        <div className="w-full max-w-screen-xl">
-          <h2 className="text-center text-3xl font-bold mt-10 mb-10">
-            Our Mission
-          </h2>
-          <div className="flex justify-evenly items-center">
-            <div className="w-[40%]">
-              <h1 className="text-center text-3xl font-semibold text-gray-600">
-                Get the Best And Most
-              </h1>
-              <h1 className="text-red-500 text-center text-3xl">
-                Creative Result
-              </h1>
-              <h1 className="text-center text-5xl font-bold">Data</h1>
-            </div>
-            <div className="w-[40%]">
-              <img className="w-[70%] rounded-lg" src={assets.hero2} alt="" />
-            </div>
-          </div>
-        </div>
-
-        {/* Second Section */}
-        <div className="w-full max-w-screen-xl mt-20">
-          <h2 className="text-center text-3xl font-bold mt-10 mb-10">
-            Our Story
-          </h2>
-          <div className="flex justify-evenly items-center">
-            <div className="w-[40%]">
-              <img className="w-[70%] rounded-lg" src={assets.hero2} alt="" />
-            </div>
-            <div className="w-[40%]">
-              <h1 className="text-center text-3xl font-semibold text-gray-600">
-                Right Decision For Your
-              </h1>
-              <h1 className="text-red-500 text-center text-3xl">
-                Marketing Strategy
-              </h1>
-              <h1 className="text-center text-5xl font-bold">Data</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* why choose us */}
-      <div className="bg-yellow-50 p-4">
-        <h2 className="text-2xl font-bold mb-4 text-center">Why Choose Us</h2>
-        <div className="text-center mb-10">
-          <h3 className="text-xl font-bold">Perfect Media With</h3>
-          <h3 className="text-xl font-bold">Perfect Partner</h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="flex flex-col items-center">
-            <div className="flex items-center mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">Affordable Price</span>
-            </div>
-            <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">Guaranteed Result</span>
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="flex items-center mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">Years Experience</span>
-            </div>
-            <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">Partner Worldwide</span>
-            </div>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="flex items-center mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">24/7 Support</span>
-            </div>
-            <div className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 text-green-500"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75"
-                />
-              </svg>
-              <span className="ml-2">Industry Expert</span>
-            </div>
-          </div>
         </div>
       </div>
     </>

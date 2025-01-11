@@ -6,12 +6,20 @@ const InfluencerDetails = () => {
     platform: "",
     platformLink: "",
     followers: "",
-    about: "", 
+    about: "",
+    category: "", // New category state
   });
 
   const [platforms, setPlatforms] = useState([{ platform: "", platformLink: "" }]);
   const [photo, setPhoto] = useState(null); // For storing the uploaded photo
   const [preview, setPreview] = useState(null); // For image preview
+
+  const influencerCategories = [
+    "Funny/Comedy", "Entertainment", "Fashion", "Beauty", "Fitness", "Travel",
+    "Food", "Lifestyle", "Tech/Gadgets", "Gaming", "DIY/Crafting", "Parenting",
+    "Finance", "Motivation", "Education", "Health & Wellness", "Pet/Animal",
+    "Music", "Environmental/Sustainability", "Social Activism"
+  ];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +51,7 @@ const InfluencerDetails = () => {
     data.append("name", formData.name);
     data.append("followers", formData.followers);
     data.append("about", formData.about); 
+    data.append("category", formData.category); // Add category to form data
     data.append("photo", photo); 
     platforms.forEach((platform, index) => {
       data.append(`platforms[${index}][platform]`, platform.platform);
@@ -50,14 +59,14 @@ const InfluencerDetails = () => {
     });
 
     try {
-      const response = await fetch("https://your-backend-endpoint.com/api/influencers", {
+      const response = await fetch(`${import.meta.env.BASE_URL}/api/influencers`, {
         method: "POST",
         body: data,
       });
 
       if (response.ok) {
         alert("Influencer data submitted successfully!");
-        setFormData({ name: "", platform: "", platformLink: "", followers: "", about: "" });
+        setFormData({ name: "", platform: "", platformLink: "", followers: "", about: "", category: "" });
         setPhoto(null);
         setPreview(null);
         setPlatforms([{ platform: "", platformLink: "" }]);
@@ -107,6 +116,25 @@ const InfluencerDetails = () => {
                 className="mt-4 w-full h-40 object-cover rounded-lg border"
               />
             )}
+          </div>
+
+          {/* Category Selection */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Category</label>
+            <select
+              name="category"
+              value={formData.category}
+              onChange={handleChange}
+              required
+              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+            >
+              <option value="">Select Category</option>
+              {influencerCategories.map((category, index) => (
+                <option key={index} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
           </div>
 
           {/* Platforms */}

@@ -59,6 +59,13 @@ body {
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
 }
+.overflow-x-auto::-webkit-scrollbar {
+  display: none;
+}
+.overflow-x-auto {
+  -ms-overflow-style: none;  /* for Internet Explorer 10+ */
+  scrollbar-width: none;  /* for Firefox */
+}
 
 
 
