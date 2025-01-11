@@ -3,16 +3,15 @@ import React, { useState } from "react";
 const InfluencerDetails = () => {
   const [formData, setFormData] = useState({
     name: "",
-    platform: "",
-    platformLink: "",
-    followers: "",
     about: "",
-    category: "", // New category state
+    category: "",
   });
 
-  const [platforms, setPlatforms] = useState([{ platform: "", platformLink: "" }]);
-  const [photo, setPhoto] = useState(null); // For storing the uploaded photo
-  const [preview, setPreview] = useState(null); // For image preview
+  const [platforms, setPlatforms] = useState([
+    { platform: "", platformLink: "", followers: "" },
+  ]);
+  const [photo, setPhoto] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   const influencerCategories = [
     "Funny/Comedy", "Entertainment", "Fashion", "Beauty", "Fitness", "Travel",
@@ -34,14 +33,14 @@ const InfluencerDetails = () => {
   };
 
   const handleAddPlatform = () => {
-    setPlatforms([...platforms, { platform: "", platformLink: "" }]);
+    setPlatforms([...platforms, { platform: "", platformLink: "", followers: "" }]);
   };
 
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setPhoto(file);
-      setPreview(URL.createObjectURL(file)); // Generate a preview URL
+      setPreview(URL.createObjectURL(file));
     }
   };
 
@@ -49,13 +48,14 @@ const InfluencerDetails = () => {
     e.preventDefault();
     const data = new FormData();
     data.append("name", formData.name);
-    data.append("followers", formData.followers);
-    data.append("about", formData.about); 
-    data.append("category", formData.category); // Add category to form data
-    data.append("photo", photo); 
+    data.append("about", formData.about);
+    data.append("category", formData.category);
+    data.append("photo", photo);
+
     platforms.forEach((platform, index) => {
       data.append(`platforms[${index}][platform]`, platform.platform);
       data.append(`platforms[${index}][platformLink]`, platform.platformLink);
+      data.append(`platforms[${index}][followers]`, platform.followers);
     });
 
     try {
@@ -66,10 +66,10 @@ const InfluencerDetails = () => {
 
       if (response.ok) {
         alert("Influencer data submitted successfully!");
-        setFormData({ name: "", platform: "", platformLink: "", followers: "", about: "", category: "" });
+        setFormData({ name: "", about: "", category: "" });
         setPhoto(null);
         setPreview(null);
-        setPlatforms([{ platform: "", platformLink: "" }]);
+        setPlatforms([{ platform: "", platformLink: "", followers: "" }]);
       } else {
         alert("Failed to submit influencer data.");
       }
@@ -168,6 +168,17 @@ const InfluencerDetails = () => {
                   className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
                 />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">Followers</label>
+                <input
+                  type="number"
+                  name="followers"
+                  value={platform.followers}
+                  onChange={(e) => handlePlatformChange(index, e)}
+                  required
+                  className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
+                />
+              </div>
             </div>
           ))}
 
@@ -178,19 +189,6 @@ const InfluencerDetails = () => {
           >
             Add Another Platform
           </button>
-
-          {/* Followers */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Followers</label>
-            <input
-              type="number"
-              name="followers"
-              value={formData.followers}
-              onChange={handleChange}
-              required
-              className="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300"
-            />
-          </div>
 
           {/* About */}
           <div>
