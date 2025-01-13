@@ -59,7 +59,7 @@ const InfluencerDetails = () => {
     });
 
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}/api/influencers`, {
+      const response = await fetch(`https://hybyconnect.com/api/influencers`, {
         method: "POST",
         body: data,
       });

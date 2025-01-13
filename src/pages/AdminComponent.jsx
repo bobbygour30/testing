@@ -44,7 +44,7 @@ const AdminComponent = () => {
   // Handle Update Status for Influencer
   const handleUpdateStatus = async () => {
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}/api/influencers/update_status`, {
+      const response = await fetch(`https://hybyconnect.com/api/influencers/update_status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

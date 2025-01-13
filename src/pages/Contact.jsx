@@ -23,7 +23,7 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}/submit`, {
+      const response = await fetch(`https://hybyconnect.com/api/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
