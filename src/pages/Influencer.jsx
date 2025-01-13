@@ -91,8 +91,7 @@ const Influencer = () => {
         );
         const data = await response.json();
         setInfluencers(data);
-        console.log(data[0].photo);
-        
+        // console.log(data[1].photo);
       } catch (error) {
         console.error("Error fetching influencer data:", error);
       }
@@ -255,9 +254,9 @@ const Influencer = () => {
               key={influencer._id}
               className="bg-gray-200 border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="w-full h-48 overflow-hidden">
+              <div className="w-full h-96 overflow-hidden">
                 <img
-                  src={`/${influencer.photo}`}
+                  src={influencer.photo}
                   alt={influencer.name}
                   className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
                 />
@@ -291,7 +290,204 @@ const Influencer = () => {
             </div>
           ))}
         </div>
+        {/* Our mission */}
+        <div className="bg-[#F7FF80] text-center p-8">
+          <div className="min-h-screen flex flex-col justify-center items-center bg-[#F7FF80] text-center p-8">
+            <div className="mb-16 w-full max-w-7xl">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                Our Mission
+              </h2>
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 px-4 sm:px-8">
+                <div className="text-center md:text-left w-full md:w-[90%] lg:w-[80%]">
+                  <h3 className="text-4xl sm:text-3xl font-medium mb-4 text-center md:text-left">
+                    Get The Best And Most <br />
+                    <span className="text-red-500 font-bold text-3xl sm:text-2xl">
+                      Creative Result
+                    </span>
+                  </h3>
+                  <p className="text-base sm:text-lg md:text-xl">
+                    At Hyby Connect, our mission is to empower influencers by
+                    providing cutting-edge digital marketing solutions tailored
+                    to their unique needs. We specialize in leveraging
+                    data-driven strategies and creative campaigns to amplify
+                    your reach, grow your audience, and maximize your impact.
+                    Our goal is to bridge the gap between influencers and
+                    brands, ensuring authentic connections that drive meaningful
+                    results. With Hyby Connect, we’re not just helping you
+                    market your content — we’re building a pathway to your
+                    success in the ever-evolving digital world.
+                  </p>
+                </div>
+                <img
+                  src={assets.ourmission} // Replace with your image URL
+                  alt="Our Mission"
+                  className="w-full md:w-1/2 rounded-lg mt-6 md:mt-0"
+                />
+              </div>
+            </div>
+
+            {/* Our Strategy */}
+            <div className="w-full max-w-7xl mt-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                Our Strategy
+              </h2>
+              <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 px-4 sm:px-8">
+                <img
+                  src={assets.ourstretegy} // Replace with your image URL
+                  alt="Our Strategy"
+                  className="w-full md:w-1/2 rounded-lg mb-6 md:mb-0"
+                />
+                <div className="text-center md:text-left w-full md:w-[90%] lg:w-[80%]">
+                  <h3 className="text-4xl sm:text-3xl font-medium mb-4 text-center md:text-left">
+                    Right Decision For Your <br />
+                    <span className="text-red-500 font-bold">
+                      Marketing Strategy
+                    </span>
+                  </h3>
+                  <p className="text-base sm:text-lg md:text-xl">
+                    At Hyby Connect, our story is rooted in the vision of
+                    empowering influencers to thrive in the digital landscape.
+                    We understand the challenges influencers face in standing
+                    out, building authentic connections, and creating impactful
+                    campaigns. That’s why we specialize in delivering innovative
+                    marketing strategies and data-driven solutions tailored to
+                    your goals. By bridging the gap between influencers and
+                    brands, we aim to foster meaningful collaborations that
+                    drive real results. At Hyby Connect, we’re not just a
+                    service provider; we’re your partner in crafting a journey
+                    of growth, success, and long-lasting impact.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* what we provide */}
+      <section className="py-16 px-6 md:px-12 bg-gradient-to-br from-[#F7FF80] via-white to-[#F7FF80] text-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-black mb-12">
+            What We Provide ?
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Brand Promotion",
+                description:
+                  "Boosting your brand's presence and visibility through innovative and targeted marketing strategies.",
+                icon: "📢",
+                route: "/services/brand-promotion",
+              },
+              {
+                title: "Song Promotion",
+                description:
+                  "Amplify the reach of your music with tailored marketing campaigns to connect with your audience.",
+                icon: "🎵",
+                route: "/services/song-promotion",
+              },
+              {
+                title: "Meme Marketing",
+                description:
+                  "Engage your audience creatively with viral, relatable, and shareable meme-based marketing strategies.",
+                icon: "😂",
+                route: "/services/meme-marketing",
+              },
+              {
+                title: "Event Promotion",
+                description:
+                  "Promote your events effectively and drive attendance with customized marketing approaches.",
+                icon: "🎉",
+                route: "/services/event-promotion",
+              },
+              {
+                title: "Content Marketing",
+                description:
+                  "Deliver valuable, engaging content that builds trust and drives customer action.",
+                icon: "✍️",
+                route: "/services/content-marketing",
+              },
+              {
+                title: "Movie Marketing",
+                description:
+                  "Strategize and execute campaigns to create buzz and boost your movie's reach to the right audience.",
+                icon: "🎬",
+                route: "/services/movie-marketing",
+              },
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="p-6 bg-gradient-to-b from-[#f7ff80] to-white rounded-lg shadow-md hover:shadow-xl transform transition-all duration-300 hover:scale-105"
+              >
+                <div className="bg-white w-16 h-16 flex items-center justify-center rounded-full mx-auto mb-6">
+                  <span className="text-3xl text-black font-bold">
+                    {service.icon}
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 text-black">
+                  {service.title}
+                </h3>
+                <p className="text-gray-800 text-sm sm:text-base md:text-lg">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* why choose us */}
+      <section className="py-16 px-6 md:px-12 bg-[#F7FF80]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-black mb-4 sm:mb-6">
+            Why Choose Us
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-black mb-8 sm:mb-10 md:mb-12">
+            Perfect Media With Perfect Partner
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Affordable Price",
+                icon: "💰",
+              },
+              {
+                title: "Guaranteed Result",
+                icon: "🎯",
+              },
+              {
+                title: "Years Experience",
+                icon: "⏳",
+              },
+              {
+                title: "Partner Worldwide",
+                icon: "🌍",
+              },
+              {
+                title: "24/7 Support",
+                icon: "📞",
+              },
+              {
+                title: "Industry Expert",
+                icon: "🏆",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="p-8 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-black">
+                  {item.title}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 };

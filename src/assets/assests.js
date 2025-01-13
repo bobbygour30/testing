@@ -13,6 +13,8 @@ import casestudy from "./casestudy.jpg";
 import desktop from "./desktop.png";
 import nike from "./nike.jpg";
 import hero2 from "./hero2.jpeg";
+import ourstretegy from "./ourstretegy.jpg";
+import ourmission from "./ourmission.jpg";
 
 
 const assets = {
@@ -30,7 +32,9 @@ const assets = {
   casestudy,
   desktop,
   nike,
-  hero2
+  hero2,
+  ourstretegy,
+  ourmission
   
 };
 
